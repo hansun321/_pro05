@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class UserRole {
     private int userId;
-    private int roleId = 4;
+    private int roleId;
 }

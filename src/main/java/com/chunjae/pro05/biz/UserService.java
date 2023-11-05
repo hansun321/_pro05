@@ -40,8 +40,8 @@ public class UserService implements UserDetailsService {
         System.out.println("Role : " + role);
 
         UserRole userRole = new UserRole();
-        //userRole.setRoleId(role.getId());
-        //userRole.setUserId(user.getId());
+        userRole.setRoleId(user.getId()); // 임시
+        userRole.setUserId(user.getId());
         userRoleMapper.setUserRoleInfo(userRole);
     }
 
