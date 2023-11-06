@@ -21,7 +21,7 @@
     <link href="/plugins/slick/slick-theme.css" rel="stylesheet">
     <link href="/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
-    <title>T셀파몰</title>
+    <title>게시글 목록</title>
 </head>
 
 <body>
@@ -121,6 +121,96 @@
     </header>
 
     <div class="main-content">
+        <!-- Page Title -->
+        <section class="page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 text-center">
+                        <!-- Title text -->
+                        <h3>게시판</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--==================================
+        =            Blog Section            =
+        ===================================-->
+
+        <section class="blog section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Article 06 -->
+
+
+                        <!--<article>
+                            <a href=""><h3>Donec id dolor in erat imperdiet.</h3></a>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">by <a href="user-profile.html">Admin</a></li>
+                                <li class="list-inline-item">Nov 22,2016</li>
+                            </ul>
+                        </article>-->
+                        <div th:each="board : ${boardList}">
+                            <article>
+                                <a th:href="@{/board/detail(bno=${board.bno})}"><h3 th:text="${board.title}"></h3></a>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">작성자 <a href="user-profile.html" th:text="${board.id}"></a></li>
+                                    <li class="list-inline-item" th:text="${board.resdate}"></li>
+                                </ul>
+                                <!--<p th:text="${article.content}"></p>-->
+                                <!--<a th:href="@{single-blog.html}" class="btn btn-transparent">Read More</a>-->
+                            </article>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="sidebar">
+                            <!-- Search Widget -->
+                            <!--
+                            <div class="widget search p-0">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="expire" placeholder="Type &amp; hit enter to search">
+                                    <span class="input-group-addon"><i class="fa fa-search px-3"></i></span>
+                                </div>
+                            </div>
+                            -->
+                            <div class="widget search p-0">
+                                <div class="input-group">
+                                    <!--<input type="text" class="form-control" id="expire" placeholder="Type &amp; hit enter to search">-->
+                                    <!--<span class="input-group-addon"><i class="fa fa-search px-3"></i></span>-->
+                                    <a th:href="@{/board/insert}" class="btn btn-main text-white font-weight-bold form-control">게시글 작성</a>
+                                </div>
+                            </div>
+
+
+                            <!-- Category Widget -->
+                            <div class="widget category">
+                                <!-- Widget Header -->
+                                <h5 class="widget-header">Categories</h5>
+                                <ul class="category-list">
+                                    <li><a href="category.html">Appearel <span class="float-right">(2)</span></a></li>
+                                    <li><a href="category.html">Accesories <span class="float-right">(5)</span></a></li>
+                                    <li><a href="category.html">Business<span class="float-right">(7)</span></a></li>
+                                    <li><a href="category.html">Entertaiment<span class="float-right">(3)</span></a></li>
+                                    <li><a href="category.html">Education<span class="float-right">(9)</span></a></li>
+                                </ul>
+                            </div>
+                            <!-- Archive Widget -->
+                            <div class="widget archive">
+                                <!-- Widget Header -->
+                                <h5 class="widget-header">Archives</h5>
+                                <ul class="archive-list">
+                                    <li><a href="ad-list-view.html">January 2017</a></li>
+                                    <li><a href="ad-list-view.html">February 2017</a></li>
+                                    <li><a href="ad-list-view.html">March 2017</a></li>
+                                    <li><a href="ad-list-view.html">April 2017</a></li>
+                                    <li><a href="ad-list-view.html">May 2017</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Footer -->
