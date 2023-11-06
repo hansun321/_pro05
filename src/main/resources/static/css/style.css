@@ -29,7 +29,7 @@ html, body {
 p, li, input, select, button {
   font-family: "Muli", sans-serif;
   color: #666;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -64,7 +64,7 @@ p {
 }
 
 label {
-  font-size: 14px;
+  font-size: 1rem;
   letter-spacing: 0;
   color: #848484;
 }
@@ -760,7 +760,7 @@ ul.pagination .active a {
 }
 
 .dropdown-item {
-  font-size: 14px;
+  font-size: 1rem;
   padding: 10px 60px 10px 25px;
 }
 @media (max-width: 992px) {
@@ -919,7 +919,7 @@ ul.pagination .active a {
   margin-top: 40px;
 }
 .short-popular-category-list h2 {
-  font-size: 14px;
+  font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
@@ -968,7 +968,7 @@ ul.pagination .active a {
   background: #fff;
 }
 .category-slider .item a h4 {
-  font-size: 14px;
+  font-size: 1rem;
   margin-top: 10px;
 }
 .category-slider .item a i {
@@ -1038,7 +1038,7 @@ ul.pagination .active a {
 }
 
 .dashboard-container .product-dashboard-table thead th {
-  font-size: 14px;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.4px;
 }
@@ -1066,7 +1066,7 @@ ul.pagination .active a {
 }
 .dashboard-container .product-details span {
   display: block;
-  font-size: 14px;
+  font-size: 1rem;
   color: #848484;
 }
 .dashboard-container .product-details span strong {
@@ -1092,7 +1092,7 @@ ul.pagination .active a {
   width: 40px;
   height: 40px;
   border-radius: 40px;
-  font-size: 14px;
+  font-size: 1rem;
   color: #363b4d;
   text-align: center;
   display: inline-block;
@@ -1250,7 +1250,7 @@ ul.pagination .active a {
 }
 .category-block .category-list li {
   display: block;
-  font-size: 14px;
+  font-size: 1rem;
   border-bottom: 1px solid #F4F7F9;
   padding: 10px 0;
 }
@@ -1669,7 +1669,7 @@ ul.pagination .active a {
   margin-bottom: 20px;
 }
 .widget.filter .form-check-label {
-  font-size: 14px;
+  font-size: 1rem;
   color: #848484;
 }
 .widget.filter .form-check-label input {
@@ -1702,7 +1702,7 @@ ul.pagination .active a {
   letter-spacing: 0.05em;
 }
 .widget .welcome-message p {
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 26px;
   letter-spacing: 0;
   color: #848484;
@@ -1765,7 +1765,7 @@ ul.pagination .active a {
 }
 @media (max-width: 400px) {
   .call-to-action .content-holder ul li a {
-    font-size: 14px;
+    font-size: 1rem;
     padding: 12px;
   }
 }
@@ -1891,7 +1891,7 @@ ul.pagination .active a {
   color: #5672f9;
 }
 .store-coupon .block .media .media-body p {
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 26px;
   color: #848484;
   letter-spacing: 0;
@@ -2213,7 +2213,7 @@ form textarea {
 }
 .footer .block ul li a {
   display: block;
-  font-size: 14px;
+  font-size: 1rem;
   color: #797979;
 }
 .footer .block ul li a:hover {

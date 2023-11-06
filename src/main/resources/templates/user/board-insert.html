@@ -21,7 +21,7 @@
     <link href="/plugins/slick/slick-theme.css" rel="stylesheet">
     <link href="/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
-    <title>게시글 목록</title>
+    <title>게시글 상세보기</title>
 </head>
 
 <body>
@@ -137,8 +137,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        <div class="comment">
-                            <!--<h4>Leave A Comment</h4>-->
+                        <article class="single-post">
                             <form th:action="@{/board/insert}" method="post">
                                 <!-- Message -->
                                 <div class="form-group mb-30">
@@ -149,27 +148,9 @@
                                     <label for="content">내용</label>
                                     <textarea name="content" id="content" class="form-control" rows="8" cols="100" maxlength="1400" required></textarea>
                                 </div>
-                                <!--
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6">
-                                        &lt;!&ndash; Name &ndash;&gt;
-                                        <div class="form-group mb-30">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        &lt;!&ndash; Email &ndash;&gt;
-                                        <div class="form-group mb-30">
-                                            <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                -->
                                 <button class="btn btn-main">등록</button>
                             </form>
-                        </div>
+                        </article>
                     </div>
                     <div class="col-lg-4">
                         <div class="sidebar">
@@ -209,9 +190,6 @@
                 </div>
             </div>
         </section>
-    </div>
-
-
     </div>
 
     <!-- Footer -->
