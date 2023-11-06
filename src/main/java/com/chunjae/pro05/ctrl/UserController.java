@@ -23,41 +23,36 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping( "/")
-    public String home(Model model){
+    @GetMapping("/")
+    public String index(Model model) {
         Human human = new Human();
         human.setName("김천재");
         human.setAge(39);
 
         List<Human> hList = new ArrayList<>();
 
-        for(int i=0;i<4;i++){
+        for (int i = 0; i < 4; i++) {
             Human h = new Human();
-            h.setName("김나연"+i);
-            h.setAge(i+25);
+            h.setName("김나연" + i);
+            h.setAge(i + 25);
             hList.add(h);
         }
         model.addAttribute("hList", hList);
         model.addAttribute("human", human);
         model.addAttribute("attrName", "임의필드");
-        return "/user/index";
+        return "user/index";
     }
 
-    @GetMapping( "/login")
-    public ModelAndView getLoginPage() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("user/login");
-        return modelAndView;
+    @GetMapping("/login")
+    public String getLoginPage() {
+        return "user/login";
     }
 
     @GetMapping("/registration")
-    public ModelAndView getRegistrationPage() {
-        ModelAndView modelAndView = new ModelAndView();
+    public String getRegistrationPage(Model model) {
         User user = new User();
-        modelAndView.addObject("user", user);
-        modelAndView.setViewName("/user/registration");
-
-        return modelAndView;
+        model.addAttribute("user", user);
+        return "user/registration";
     }
 
     //@Valid
@@ -68,39 +63,33 @@ public class UserController {
         User userExists = userService.findUserByLoginId(user.getLoginId());
         if (userExists != null) {
             bindingResult
-                    .rejectValue("loginId", "error.loginId","There is already a user registered with the loginId provided");
+                    .rejectValue("loginId", "error.loginId", "There is already a user registered with the loginId provided");
         }
 
         if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("/user/registration");
+            modelAndView.setViewName("user/registration");
         } else {
             userService.saveUser(user);
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());
-            modelAndView.setViewName("/user/registration");
+            modelAndView.setViewName("user/registration");
         }
         return modelAndView;
     }
 
     @GetMapping("/home")
-    public ModelAndView home(){
-        ModelAndView modelAndView = new ModelAndView();
-
+    public String home(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
+        //System.out.println(userPrincipal.toString());
 
-        System.out.println(userPrincipal.toString());
-
-        modelAndView.addObject("userName", "Welcome " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");
-        modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
-        modelAndView.setViewName("/user/home");
-        return modelAndView;
+        model.addAttribute("userName", "Welcome " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");
+        model.addAttribute("adminMessage","Content Available Only for Users with Admin Role");
+        return "user/home";
     }
 
     @GetMapping("/exception")
-    public ModelAndView getUserPermissionExceptionPage() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/user/access-denied");
-        return mv;
+    public String getUserPermissionExceptionPage() {
+        return "user/access-denied";
     }
 }

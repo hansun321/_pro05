@@ -27,39 +27,22 @@ public class BoardController {
     private BoardService boardService;
 
     @GetMapping("list")
-    public ModelAndView getBoardList(HttpServletRequest request, Model model) throws Exception {
-        ModelAndView mav = new ModelAndView();
-
+    public String getBoardList(Model model) throws Exception {
         List<Board> boardList = boardService.getBoardList();
-        mav.addObject("boardList", boardList);
-        mav.setViewName("user/board-list");
-        return mav;
+        model.addAttribute("boardList", boardList);
+        return "user/board-list";
     }
 
     @GetMapping("detail")
-    public ModelAndView getBoardDetail(int bno, HttpServletRequest request, Model model) throws Exception {
-        ModelAndView mav = new ModelAndView();
-
-        //List<Board> boardList = boardService.getBoardList();
-        //mav.addObject("boardList", boardList);
-        //int bno = Integer.parseInt(request.getParameter("bno"));
+    public String getBoardDetail(int bno, Model model) throws Exception {
         Board board = boardService.getBoardDetail(bno);
-        mav.addObject("board", board);
-        mav.setViewName("user/board-detail");
-        return mav;
+        model.addAttribute("board", board);
+        return "user/board-detail";
     }
 
     @GetMapping("insert")
-    public ModelAndView insertForm(HttpServletRequest request, Model model) throws Exception {
-        ModelAndView mav = new ModelAndView();
-
-        //List<Board> boardList = boardService.getBoardList();
-        //mav.addObject("boardList", boardList);
-        //int bno = Integer.parseInt(request.getParameter("bno"));
-        //Board board = boardService.getBoardDetail(bno);
-        //mav.addObject("board", board);
-        mav.setViewName("user/board-insert");
-        return mav;
+    public String insertForm(HttpServletRequest request, Model model) throws Exception {
+        return "user/board-insert";
     }
 
     @PostMapping("insert")
