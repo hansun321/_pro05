@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="_csrf" name="_csrf" content="${_csrf.token}"/>
+    <meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}"/>
+
+    <!-- favicon -->
+    <link href="/images/favicon.png" rel="shortcut icon">
+
+    <!-- Essential stylesheets -->
+    <link href="/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="/plugins/bootstrap/bootstrap-slider.css" rel="stylesheet">
+    <link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/plugins/icofont/icofont.css" rel="stylesheet">
+
+    <link href="/plugins/slick/slick.css" rel="stylesheet">
+    <link href="/plugins/slick/slick-theme.css" rel="stylesheet">
+    <link href="/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+
+    <title th:replace="${title}"></title>
+</head>
+</html>
