@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-md-8 offset-md-2 text-center">
                         <!-- Title text -->
-                        <h3>게시판</h3>
+                        <h3 th:text="${isLoggedIn}">게시판</h3>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,8 @@
                                 <div class="input-group">
                                     <!--<input type="text" class="form-control" id="expire" placeholder="Type &amp; hit enter to search">-->
                                     <!--<span class="input-group-addon"><i class="fa fa-search px-3"></i></span>-->
-                                    <a th:href="@{/board/insert}" class="btn btn-main text-white font-weight-bold form-control">게시글 작성</a>
+                                    <!--th:href="@{/board/insert}"-->
+                                    <a th:href="@{/board/insert}" class="btn btn-main text-white font-weight-bold form-control" id="posting">게시글 작성</a>
                                 </div>
                             </div>
 
@@ -101,6 +102,25 @@
             </div>
         </section>
     </div>
+
+    <script th:inline="javascript">
+        document.getElementById("posting").addEventListener("click", function(event) {
+            // var isLoggedIn = "[[${isLoggedIn}]]";
+            // if (isLoggedIn === "false") {
+            //     event.preventDefault(); // 기본 동작 취소 (페이지 이동 방지)
+            //     alert("게시글 작성은 로그인이 필요합니다.");
+            //     location.href = "/login"; // 로그인 페이지로 이동
+            // }
+            var map = [[${map}]];
+            //var login = map['login'];
+            //console.log(login);
+            if(!map['login']) {
+                event.preventDefault(); // 기본 동작 취소 (페이지 이동 방지)
+                alert("게시글 작성은 로그인이 필요합니다.");
+                location.href = "/login"; // 로그인 페이지로 이동
+            }
+        });
+    </script>
 
     <!-- Footer -->
     <footer th:replace="commons/footer::footer"></footer>

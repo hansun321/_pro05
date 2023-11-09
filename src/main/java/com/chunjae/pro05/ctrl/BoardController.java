@@ -19,7 +19,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/board/")
@@ -32,6 +34,16 @@ public class BoardController {
     public String getBoardList(Model model) throws Exception {
         List<Board> boardList = boardService.getBoardList();
         model.addAttribute("boardList", boardList);
+
+        //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        //System.out.println("principal:" + principal);
+        boolean isLoggedIn = !principal.equals("anonymousUser");
+        model.addAttribute("isLoggedIn", isLoggedIn);
+        Map<String, Object> map = new HashMap<>();
+        map.put("login", isLoggedIn);
+        model.addAttribute("map", map);
+
         return "user/board-list";
     }
 
@@ -43,8 +55,8 @@ public class BoardController {
     }
 
     @GetMapping("insert")
-    public String insertForm(HttpServletResponse response, HttpServletRequest request, Model model) throws Exception {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    public String insertForm(Model model) throws Exception {
+        //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 //        if (auth.getPrincipal().equals("anonymousUser")) {
 //            Alert.alert(response, "게시글 작성은 로그인이 필요합니다.");
 //        }
@@ -59,31 +71,13 @@ public class BoardController {
     }
 
     @PostMapping("insert")
-    public String insertBoard(HttpServletRequest request, Model model) throws Exception {
-        //ModelAndView modelAndView = new ModelAndView();
-//        User userExists = userService.findUserByLoginId(user.getLoginId());
-//        if (userExists != null) {
-//            bindingResult
-//                    .rejectValue("loginId", "error.loginId","There is already a user registered with the loginId provided");
-//        }
-//
-//        if (bindingResult.hasErrors()) {
-//            modelAndView.setViewName("/user/registration");
-//        } else {
-//            userService.saveUser(user);
-//            modelAndView.addObject("successMessage", "User has been registered successfully");
-//            modelAndView.addObject("user", new User());
-//            modelAndView.setViewName("/user/registration");
-//        }
-        //boardService.insertBoard();
+    public String insertBoard(HttpServletResponse response, HttpServletRequest request, Model model) throws Exception {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
-        //System.out.println("userPrincipal : " + userPrincipal);
         Board board = new Board();
         board.setTitle(request.getParameter("title"));
         board.setContent(request.getParameter("content"));
         board.setId(userPrincipal.getId());
-
         boardService.insertBoard(board);
         return "redirect:list";
     }
