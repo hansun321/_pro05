@@ -35,6 +35,7 @@
                             <!--<img src="images/blog/post-4.jpg" alt="article-01">-->
                             <p th:text="${board.content}"></p>
 
+                            <!--
                             <ul class="social-circle-icons list-inline">
                                 <li class="list-inline-item text-center"><a class="fa fa-facebook" href="https://themefisher.com/"></a></li>
                                 <li class="list-inline-item text-center"><a class="fa fa-twitter" href="https://themefisher.com/"></a></li>
@@ -42,6 +43,17 @@
                                 <li class="list-inline-item text-center"><a class="fa fa-pinterest-p" href="https://themefisher.com/"></a></li>
                                 <li class="list-inline-item text-center"><a class="fa fa-linkedin" href="https://themefisher.com/"></a></li>
                             </ul>
+                            -->
+                            <!--<a th:href="@{/board/detail(bno=${board.bno})}"-->
+                            <ul class="list-inline text-center">
+                                <li class="list-inline-item">
+                                    <a href="https://themefisher.com/" class="btn btn-info">수정</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a th:href="@{/board/delete(bno=${board.bno})}" class="btn btn-danger">삭제</a>
+                                </li>
+                            </ul>
+
                         </article>
                         <div class="block comment">
                             <h4>Leave A Comment</h4>

@@ -11,7 +11,7 @@ body {
   line-height: 1.5;
   font-family: "Muli", sans-serif;
 }
-/* 15~27번째줄은 footer 하단 고정을 위해 추가함 */
+/* 15~28번째줄은 footer 하단 고정을 위해 추가함 */
 html, body {
   margin: 0;
   padding: 0;
@@ -2015,6 +2015,9 @@ article .video .video-box span iframe {
 }
 article h3 {
   margin-bottom: 5px;
+}
+article h3:hover {
+  text-decoration: underline;
 }
 article ul {
   margin-bottom: 15px;

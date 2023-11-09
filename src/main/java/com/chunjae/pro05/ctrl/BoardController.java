@@ -4,6 +4,7 @@ import com.chunjae.pro05.biz.BoardService;
 import com.chunjae.pro05.domain.UserPrincipal;
 import com.chunjae.pro05.entity.Board;
 import com.chunjae.pro05.entity.User;
+import com.chunjae.pro05.util.Alert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -41,12 +43,23 @@ public class BoardController {
     }
 
     @GetMapping("insert")
-    public String insertForm(HttpServletRequest request, Model model) throws Exception {
+    public String insertForm(HttpServletResponse response, HttpServletRequest request, Model model) throws Exception {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        if (auth.getPrincipal().equals("anonymousUser")) {
+//            Alert.alert(response, "게시글 작성은 로그인이 필요합니다.");
+//        }
         return "user/board-insert";
     }
 
+    @GetMapping("delete")
+    public String deleteBoard(HttpServletRequest request, Model model) throws Exception {
+        int bno = Integer.parseInt(request.getParameter("bno"));
+        boardService.deleteBoard(bno);
+        return "redirect:list";
+    }
+
     @PostMapping("insert")
-    public String boardInsert(HttpServletRequest request, Model model) throws Exception {
+    public String insertBoard(HttpServletRequest request, Model model) throws Exception {
         //ModelAndView modelAndView = new ModelAndView();
 //        User userExists = userService.findUserByLoginId(user.getLoginId());
 //        if (userExists != null) {

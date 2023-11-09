@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+>
+
 <body>
 <header th:fragment="header">
     <div class="container">
@@ -80,8 +83,14 @@
                         </ul>
                         <ul class="navbar-nav ml-auto mt-10">
                             <li class="nav-item">
-                                <!--<a class="nav-link login-button" href="login.html">Login</a>-->
-                                <a th:href="@{/login}" class="nav-link text-dark"><i class="icofont-login"></i> 로그인</a>
+                                <!--<a th:href="@{/login}" class="nav-link text-dark"><i class="icofont-login"></i> 로그인</a>-->
+                                <!--<a th:href="@{/logout}" class="nav-link text-dark"><i class="icofont-logout"></i> 로그아웃</a>-->
+                                <div sec:authorize="isAnonymous()">
+                                    <a th:href="@{/login}" class="nav-link text-dark"><i class="icofont-login"></i> 로그인</a>
+                                </div>
+                                <div sec:authorize="isAuthenticated()">
+                                    <a th:href="@{/logout}" class="nav-link text-dark"><i class="icofont-logout"></i> 로그아웃</a>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <!--<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>-->

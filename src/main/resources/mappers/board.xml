@@ -16,4 +16,8 @@
         insert into board VALUES (default, #{title}, #{content}, default, default, #{id}, default);
     </insert>
 
+    <!-- 게시글 삭제 -->
+    <delete id="boardDelete">
+        delete from board where bno=#{bno}
+    </delete>
 </mapper>

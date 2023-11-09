@@ -25,6 +25,17 @@ public class UserController {
 
     @GetMapping("/")
     public String index(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        //System.out.println("auth : " + auth);
+        //System.out.println("auth.getPrincipal() : "+ auth.getPrincipal());
+//        if (auth.getPrincipal().equals("anonymousUser")) {
+//            System.out.println("equal");
+//        }
+
+        //UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
+        //System.out.println("userPrincipal : " + userPrincipal);
+
+
         Human human = new Human();
         human.setName("김천재");
         human.setAge(39);
@@ -46,6 +57,12 @@ public class UserController {
     @GetMapping("/login")
     public String getLoginPage() {
         return "user/login";
+    }
+
+    @GetMapping("/logout")
+    public String logout() {
+        SecurityContextHolder.clearContext(); // SecurityContext 초기화
+        return "redirect:/login"; // 로그아웃 후 리다이렉트할 URL 설정
     }
 
     @GetMapping("/registration")
