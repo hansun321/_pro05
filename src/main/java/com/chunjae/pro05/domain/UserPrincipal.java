@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Objects;
 
 //UserDetails(스프링시큐리티에서 기본적으로 제공하는 인터페이스)
 @Data
@@ -15,7 +16,8 @@ public class UserPrincipal implements UserDetails {
     private User user;
 
     public UserPrincipal(User user){
-        this.user = user;
+        //this.user = user;
+        this.user = Objects.requireNonNull(user, "user must not be null");
     }
 
     @Override
