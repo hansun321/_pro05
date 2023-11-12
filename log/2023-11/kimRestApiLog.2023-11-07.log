@@ -4205,8 +4205,8 @@ java.lang.NumberFormatException: Cannot parse null string
 2023-11-06 10:21:01.250 INFO  [http-nio-8085-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
 2023-11-06 10:21:01.275 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-06 10:21:01.314 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
-2023-11-06 10:21:01.454 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 10:21:01.454 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -4289,12 +4289,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -4337,7 +4337,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 113 common frames omitted
-2023-11-06 10:21:01.455 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 10:21:01.455 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'bno' cannot be found on object of type 'com.chunjae.pro05.entity.Board' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:223)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -4460,7 +4460,7 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 10:21:01.470 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 10:21:01.470 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
 2023-11-06 10:22:29.941 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
 2023-11-06 10:22:29.943 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
 2023-11-06 10:22:32.038 INFO  [restartedMain] [com.chunjae.pro05.Pro05Application] - Starting Pro05Application using Java 17.0.8 on FULL8-007 with PID 13620 (D:\hansun\pro05\pro05\build\classes\java\main started by db400tea in D:\hansun\pro05\pro05)
@@ -5193,8 +5193,8 @@ Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'bn
 2023-11-06 10:36:27.325 INFO  [http-nio-8085-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
 2023-11-06 10:36:27.350 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-06 10:36:27.390 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
-2023-11-06 10:36:27.526 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 10:36:27.526 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -5277,12 +5277,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -5327,7 +5327,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 115 common frames omitted
-2023-11-06 10:36:27.527 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 10:36:27.527 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'bno' cannot be found on object of type 'com.chunjae.pro05.entity.Board' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:223)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -5452,9 +5452,9 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 10:36:27.539 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
-2023-11-06 10:36:28.180 ERROR [http-nio-8085-exec-8] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-8] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 10:36:27.539 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 10:36:28.180 ERROR [http-nio-8085-exec-8] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-8] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -5537,12 +5537,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -5587,7 +5587,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 115 common frames omitted
-2023-11-06 10:36:28.181 ERROR [http-nio-8085-exec-8] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 10:36:28.181 ERROR [http-nio-8085-exec-8] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'bno' cannot be found on object of type 'com.chunjae.pro05.entity.Board' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:223)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -5712,9 +5712,9 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 10:36:28.185 ERROR [http-nio-8085-exec-8] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
-2023-11-06 10:36:28.618 ERROR [http-nio-8085-exec-5] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-5] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 10:36:28.185 ERROR [http-nio-8085-exec-8] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 10:36:28.618 ERROR [http-nio-8085-exec-5] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-5] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -5797,12 +5797,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -5847,7 +5847,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 115 common frames omitted
-2023-11-06 10:36:28.618 ERROR [http-nio-8085-exec-5] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 10:36:28.618 ERROR [http-nio-8085-exec-5] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'bno' cannot be found on object of type 'com.chunjae.pro05.entity.Board' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:223)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -5972,7 +5972,7 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 10:36:28.621 ERROR [http-nio-8085-exec-5] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 10:36:28.621 ERROR [http-nio-8085-exec-5] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
 2023-11-06 10:36:32.311 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
 2023-11-06 10:36:32.314 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
 2023-11-06 10:36:34.171 INFO  [restartedMain] [com.chunjae.pro05.Pro05Application] - Starting Pro05Application using Java 17.0.8 on FULL8-007 with PID 7436 (D:\hansun\pro05\pro05\build\classes\java\main started by db400tea in D:\hansun\pro05\pro05)
@@ -6010,8 +6010,8 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 2023-11-06 10:41:06.264 INFO  [http-nio-8085-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
 2023-11-06 10:41:06.288 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-06 10:41:06.327 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
-2023-11-06 10:41:06.456 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 10:41:06.456 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -6094,12 +6094,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -6142,7 +6142,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 113 common frames omitted
-2023-11-06 10:41:06.459 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 10:41:06.459 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'bno' cannot be found on object of type 'com.chunjae.pro05.entity.Board' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:223)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -6265,9 +6265,9 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 10:41:06.467 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
-2023-11-06 10:41:07.243 ERROR [http-nio-8085-exec-6] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-6] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 10:41:06.467 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 10:41:07.243 ERROR [http-nio-8085-exec-6] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-6] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -6350,12 +6350,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -6398,7 +6398,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 113 common frames omitted
-2023-11-06 10:41:07.243 ERROR [http-nio-8085-exec-6] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 10:41:07.243 ERROR [http-nio-8085-exec-6] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'bno' cannot be found on object of type 'com.chunjae.pro05.entity.Board' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:223)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -6521,9 +6521,9 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 10:41:07.247 ERROR [http-nio-8085-exec-6] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
-2023-11-06 10:41:07.490 ERROR [http-nio-8085-exec-8] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-8] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 10:41:07.247 ERROR [http-nio-8085-exec-6] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 10:41:07.490 ERROR [http-nio-8085-exec-8] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-8] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -6606,12 +6606,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -6654,7 +6654,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 113 common frames omitted
-2023-11-06 10:41:07.495 ERROR [http-nio-8085-exec-8] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 10:41:07.495 ERROR [http-nio-8085-exec-8] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'bno' cannot be found on object of type 'com.chunjae.pro05.entity.Board' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:223)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -6777,7 +6777,7 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 10:41:07.500 ERROR [http-nio-8085-exec-8] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 10:41:07.500 ERROR [http-nio-8085-exec-8] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
 2023-11-06 10:41:22.711 WARN  [http-nio-8085-exec-9] [o.m.jdbc.message.server.ErrorPacket] - Error: 1146-42S02: Table 'tsherpa.review' doesn't exist
 2023-11-06 10:41:22.751 ERROR [http-nio-8085-exec-9] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: (conn=1573) Table 'tsherpa.review' doesn't exist
@@ -6928,8 +6928,8 @@ java.sql.SQLSyntaxErrorException: (conn=1573) Table 'tsherpa.review' doesn't exi
 2023-11-06 10:41:47.833 INFO  [http-nio-8085-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
 2023-11-06 10:41:47.857 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-06 10:41:47.895 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
-2023-11-06 10:41:51.919 ERROR [http-nio-8085-exec-3] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-3] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 10:41:51.919 ERROR [http-nio-8085-exec-3] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-3] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -7012,12 +7012,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -7060,7 +7060,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 113 common frames omitted
-2023-11-06 10:41:51.921 ERROR [http-nio-8085-exec-3] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 10:41:51.921 ERROR [http-nio-8085-exec-3] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'bno' cannot be found on object of type 'com.chunjae.pro05.entity.Board' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:223)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -7183,9 +7183,9 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 10:41:51.931 ERROR [http-nio-8085-exec-3] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
-2023-11-06 10:41:52.961 ERROR [http-nio-8085-exec-9] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-9] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 10:41:51.931 ERROR [http-nio-8085-exec-3] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 10:41:52.961 ERROR [http-nio-8085-exec-9] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-9] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -7268,12 +7268,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -7316,7 +7316,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 113 common frames omitted
-2023-11-06 10:41:52.962 ERROR [http-nio-8085-exec-9] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 10:41:52.962 ERROR [http-nio-8085-exec-9] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'bno' cannot be found on object of type 'com.chunjae.pro05.entity.Board' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:223)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -7439,9 +7439,9 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 10:41:52.975 ERROR [http-nio-8085-exec-9] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
-2023-11-06 10:41:53.513 ERROR [http-nio-8085-exec-5] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-5] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 10:41:52.975 ERROR [http-nio-8085-exec-9] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 10:41:53.513 ERROR [http-nio-8085-exec-5] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-5] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -7524,12 +7524,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -7572,7 +7572,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 113 common frames omitted
-2023-11-06 10:41:53.515 ERROR [http-nio-8085-exec-5] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 10:41:53.515 ERROR [http-nio-8085-exec-5] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'bno' cannot be found on object of type 'com.chunjae.pro05.entity.Board' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:223)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -7695,7 +7695,7 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 10:41:53.523 ERROR [http-nio-8085-exec-5] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 10:41:53.523 ERROR [http-nio-8085-exec-5] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
 2023-11-06 10:42:19.929 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
 2023-11-06 10:42:19.931 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
 2023-11-06 10:42:21.739 INFO  [restartedMain] [com.chunjae.pro05.Pro05Application] - Starting Pro05Application using Java 17.0.8 on FULL8-007 with PID 17508 (D:\hansun\pro05\pro05\build\classes\java\main started by db400tea in D:\hansun\pro05\pro05)
@@ -7740,8 +7740,8 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 2023-11-06 10:43:02.231 INFO  [http-nio-8085-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
 2023-11-06 10:43:02.254 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-06 10:43:02.293 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
-2023-11-06 10:43:02.484 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 10:43:02.484 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -7824,12 +7824,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 159, col 36)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 159, col 36)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -7872,7 +7872,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 113 common frames omitted
-2023-11-06 10:43:02.487 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 10:43:02.487 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'bno' cannot be found on object of type 'com.chunjae.pro05.entity.Board' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:223)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -7995,7 +7995,7 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 10:43:02.502 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 10:43:02.502 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
 2023-11-06 10:43:10.804 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
 2023-11-06 10:43:10.807 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
 2023-11-06 10:43:12.645 INFO  [restartedMain] [com.chunjae.pro05.Pro05Application] - Starting Pro05Application using Java 17.0.8 on FULL8-007 with PID 6392 (D:\hansun\pro05\pro05\build\classes\java\main started by db400tea in D:\hansun\pro05\pro05)
@@ -8656,8 +8656,8 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 2023-11-06 11:16:51.944 INFO  [http-nio-8085-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
 2023-11-06 11:16:51.981 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-06 11:16:52.039 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
-2023-11-06 11:16:52.187 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-06 11:16:52.187 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -8740,12 +8740,12 @@ org.thymeleaf.exceptions.TemplateInputException: An error happened during templa
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 184, col 40)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 184, col 40)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
 	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
 	... 81 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "user/board-list" - line 184, col 40)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "board.bno" (template: "board/board-list" - line 184, col 40)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
 	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
@@ -8782,7 +8782,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E:
 	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
 	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
 	... 107 common frames omitted
-2023-11-06 11:16:52.238 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
+2023-11-06 11:16:52.238 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
 org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'bno' cannot be found on null
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:219)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:106)
@@ -8899,7 +8899,7 @@ org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-06 11:16:52.247 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-06 11:16:52.247 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
 2023-11-06 11:17:11.910 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
 2023-11-06 11:17:11.912 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
 2023-11-06 11:17:13.662 INFO  [restartedMain] [com.chunjae.pro05.Pro05Application] - Starting Pro05Application using Java 17.0.8 on FULL8-007 with PID 9280 (D:\hansun\pro05\pro05\build\classes\java\main started by db400tea in D:\hansun\pro05\pro05)

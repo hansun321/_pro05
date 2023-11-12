@@ -3807,8 +3807,8 @@ java.lang.NumberFormatException: Cannot parse null string
 2023-11-09 16:00:41.048 INFO  [http-nio-8085-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
 2023-11-09 16:00:41.074 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-09 16:00:41.116 INFO  [http-nio-8085-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
-2023-11-09 16:00:41.285 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-09 16:00:41.285 ERROR [http-nio-8085-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-1] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -3908,7 +3908,7 @@ Caused by: org.thymeleaf.exceptions.TemplateOutputException: An error happened d
 	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:557)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
 	... 83 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "user/board-list" - line 110, col 25)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "board/board-list" - line 110, col 25)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
@@ -3928,8 +3928,8 @@ Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse
 	at org.thymeleaf.engine.Text.write(Text.java:78)
 	at org.thymeleaf.engine.OutputTemplateHandler.handleText(OutputTemplateHandler.java:71)
 	... 92 common frames omitted
-2023-11-09 16:00:41.286 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
-org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "user/board-list" - line 110, col 25)
+2023-11-09 16:00:41.286 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "board/board-list" - line 110, col 25)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
@@ -4040,7 +4040,7 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as express
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-09 16:00:41.297 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-09 16:00:41.297 ERROR [http-nio-8085-exec-1] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
 2023-11-09 16:00:46.530 ERROR [http-nio-8085-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.lang.String cannot be cast to class com.chunjae.pro05.domain.UserPrincipal (java.lang.String is in module java.base of loader 'bootstrap'; com.chunjae.pro05.domain.UserPrincipal is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @6f004661)] with root cause
 java.lang.ClassCastException: class java.lang.String cannot be cast to class com.chunjae.pro05.domain.UserPrincipal (java.lang.String is in module java.base of loader 'bootstrap'; com.chunjae.pro05.domain.UserPrincipal is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @6f004661)
 	at com.chunjae.pro05.ctrl.UserController.home(UserController.java:100)
@@ -4127,8 +4127,8 @@ java.lang.ClassCastException: class java.lang.String cannot be cast to class com
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-09 16:00:49.344 ERROR [http-nio-8085-exec-6] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-6] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-09 16:00:49.344 ERROR [http-nio-8085-exec-6] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-6] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -4228,7 +4228,7 @@ Caused by: org.thymeleaf.exceptions.TemplateOutputException: An error happened d
 	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:557)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
 	... 83 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "user/board-list" - line 110, col 25)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "board/board-list" - line 110, col 25)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
@@ -4248,8 +4248,8 @@ Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse
 	at org.thymeleaf.engine.Text.write(Text.java:78)
 	at org.thymeleaf.engine.OutputTemplateHandler.handleText(OutputTemplateHandler.java:71)
 	... 92 common frames omitted
-2023-11-09 16:00:49.344 ERROR [http-nio-8085-exec-6] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
-org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "user/board-list" - line 110, col 25)
+2023-11-09 16:00:49.344 ERROR [http-nio-8085-exec-6] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "board/board-list" - line 110, col 25)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
@@ -4360,9 +4360,9 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as express
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-09 16:00:49.363 ERROR [http-nio-8085-exec-6] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
-2023-11-09 16:00:54.950 ERROR [http-nio-8085-exec-2] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-2] Exception processing template "user/board-list": An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")
+2023-11-09 16:00:49.363 ERROR [http-nio-8085-exec-6] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-09 16:00:54.950 ERROR [http-nio-8085-exec-2] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8085-exec-2] Exception processing template "board/board-list": An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
 	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
@@ -4462,7 +4462,7 @@ Caused by: org.thymeleaf.exceptions.TemplateOutputException: An error happened d
 	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:557)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
 	... 83 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "user/board-list" - line 110, col 25)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "board/board-list" - line 110, col 25)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
@@ -4482,8 +4482,8 @@ Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse
 	at org.thymeleaf.engine.Text.write(Text.java:78)
 	at org.thymeleaf.engine.OutputTemplateHandler.handleText(OutputTemplateHandler.java:71)
 	... 92 common frames omitted
-2023-11-09 16:00:54.950 ERROR [http-nio-8085-exec-2] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] with root cause
-org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "user/board-list" - line 110, col 25)
+2023-11-09 16:00:54.950 ERROR [http-nio-8085-exec-2] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] with root cause
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "$map" (template: "board/board-list" - line 110, col 25)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
 	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
@@ -4594,7 +4594,7 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as express
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-11-09 16:00:54.963 ERROR [http-nio-8085-exec-2] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/user/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2023-11-09 16:00:54.963 ERROR [http-nio-8085-exec-2] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/board/list] and exception [An error happened during template parsing (template: "class path resource [templates/board/board-list.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
 2023-11-09 16:02:01.691 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
 2023-11-09 16:02:01.694 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
 2023-11-09 16:02:05.815 INFO  [restartedMain] [com.chunjae.pro05.Pro05Application] - Starting Pro05Application using Java 17.0.8 on FULL8-007 with PID 4036 (D:\hansun\pro05\pro05\build\classes\java\main started by db400tea in D:\hansun\pro05\pro05)

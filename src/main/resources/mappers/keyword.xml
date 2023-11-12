@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chunjae.pro05.persis.KeywordMapper">
+    <!-- 키워드 목록 출력-->
+    <select id="keywordList" resultType="com.chunjae.pro05.entity.Keyword">
+        select * from keyword order by kno desc;
+    </select>
+
+    <!-- 키워드 추가-->
+    <insert id="keywordInsert">
+        insert into keyword values (default, #{word}, #{uid})
+    </insert>
+
+    <!-- 키워드 목록 출력-->
+    <select id="getKeywordsByUid" resultType="com.chunjae.pro05.entity.Keyword">
+        select * from keyword
+        <where>
+            <if test=" uid != null and uid != '' ">
+                and uid = #{uid}
+            </if>
+        </where>
+        order by kno desc
+    </select>
+
+</mapper>

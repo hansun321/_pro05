@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/head::head(~{::title})">
+    <title>게시글 수정</title>
+</head>
+
+<body>
+<div class="wrapper">
+    <!-- Header -->
+    <header th:replace="commons/header::header"></header>
+
+    <div class="main-content">
+        <!-- Page Title -->
+        <section class="page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 text-center">
+                        <!-- Title text -->
+                        <h3>게시판</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog single-blog section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <article class="single-post">
+                            <form th:action="@{/board/insert}" method="post">
+                                <!-- Message -->
+                                <div class="form-group mb-30">
+                                    <label for="title">제목</label>
+                                    <input type="text" name="title" id="title" class="form-control" maxlength="98" th:value="${board.title}" required>
+                                    <br>
+
+                                    <label for="content">내용</label>
+                                    <textarea name="content" id="content" class="form-control" rows="8" cols="100" maxlength="1400" th:text="${board.content}" required></textarea>
+                                    <!--
+                                    <script>
+                                        CKEDITOR.replace('content',	{filebrowserUploadUrl:'${path1}/notice/imageUpload.do'});
+                                    </script>
+                                    -->
+                                </div>
+                                <button class="btn btn-main">등록</button>
+                            </form>
+                        </article>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="sidebar">
+                            <!-- Search Widget -->
+                            <div class="widget search p-0">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="expire" placeholder="Search...">
+                                    <span class="input-group-addon"><i class="fa fa-search px-3"></i></span>
+                                </div>
+                            </div>
+                            <!-- Category Widget -->
+                            <div class="widget category">
+                                <!-- Widget Header -->
+                                <h5 class="widget-header">Categories</h5>
+                                <ul class="category-list">
+                                    <li><a href="category.html">Appearel <span class="float-right">(2)</span></a></li>
+                                    <li><a href="category.html">Accesories <span class="float-right">(5)</span></a></li>
+                                    <li><a href="category.html">Business<span class="float-right">(7)</span></a></li>
+                                    <li><a href="category.html">Entertaiment<span class="float-right">(3)</span></a></li>
+                                    <li><a href="category.html">Education<span class="float-right">(9)</span></a></li>
+                                </ul>
+                            </div>
+                            <!-- Archive Widget -->
+                            <div class="widget archive">
+                                <!-- Widget Header -->
+                                <h5 class="widget-header">Archives</h5>
+                                <ul class="archive-list">
+                                    <li><a href="ad-list-view.html">January 2017</a></li>
+                                    <li><a href="ad-list-view.html">February 2017</a></li>
+                                    <li><a href="ad-list-view.html">March 2017</a></li>
+                                    <li><a href="ad-list-view.html">April 2017</a></li>
+                                    <li><a href="ad-list-view.html">May 2017</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer th:replace="commons/footer::footer"></footer>
+</div>
+
+
+
+<!-- Essential Scripts -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<script src="/plugins/bootstrap/popper.min.js"></script>
+<script src="/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="/plugins/bootstrap/bootstrap-slider.js"></script>
+<script src="/plugins/tether/js/tether.min.js"></script>
+<script src="/plugins/raty/jquery.raty-fa.js"></script>
+<script src="/plugins/slick/slick.min.js"></script>
+<script src="/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

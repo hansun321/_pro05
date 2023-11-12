@@ -12,7 +12,7 @@ user_id INT PRIMARY KEY AUTO_INCREMENT,
 active INT DEFAULT 0,
 login_id VARCHAR(255) NOT NULL,
 user_name VARCHAR(255) NOT NULL,
-password VARCHAR(300) NOT NULL
+password VARCHAR(300) NOT NULL,
 );
 
 CREATE TABLE user_role(
@@ -21,6 +21,14 @@ role_id INT NOT NULL,
 PRIMARY KEY (user_id, role_id)
 );
 
-DESC ROLE;
-DESC USER
-DESC user_role;
+CREATE table board(
+bno INT AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(200) NOT NULL,
+content VARCHAR(2000) NOT NULL,
+resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+visited int DEFAULT 0,
+id VARCHAR(50),
+commentCnt int DEFAULT 0
+);
+
+

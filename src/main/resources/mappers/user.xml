@@ -9,7 +9,7 @@
         <result property="password" column="password" />
     </resultMap>
     <select id="findUserByLoginId" resultMap="User">
-        select user_id, active, login_id, user_name, password
+        select user_id, active, login_id, user_name, password, regdate
         from user
         <where>
             <if test=" loginId != null and loginId != '' ">
@@ -18,7 +18,11 @@
         </where>
     </select>
     <insert id="setUserInfo" parameterType="com.chunjae.pro05.entity.User" useGeneratedKeys="true">
-        insert into user (active, login_id, user_name, password)
-        values (#{param.active}, #{param.loginId}, #{param.userName}, #{param.password})
+        insert into user (active, login_id, user_name, password, regdate)
+        values (#{param.active}, #{param.loginId}, #{param.userName}, #{param.password}, default)
     </insert>
+
+    <select id="findAllUser" resultMap="User">
+        select * from user
+    </select>
 </mapper>

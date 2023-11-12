@@ -27,8 +27,8 @@
 
                                 <!-- Dropdown list -->
                                 <ul class="dropdown-menu">
-                                    <li><a th:href="@{/board/list}" class="dropdown-item @@dashboardPage" >게시판</a></li>
-                                    <li><a class="dropdown-item @@dashboardMyAds" href="dashboard-my-ads.html">Dashboard My Ads</a></li>
+                                    <li><a th:href="@{/board/list}" class="dropdown-item" >게시판</a></li>
+                                    <li><a th:href="@{/product/list}" class="dropdown-item" >상품 목록</a></li>
                                     <li><a class="dropdown-item @@dashboardFavouriteAds" href="dashboard-favourite-ads.html">Dashboard Favourite Ads</a></li>
                                     <li><a class="dropdown-item @@dashboardArchivedAds" href="dashboard-archived-ads.html">Dashboard Archived Ads</a></li>
                                     <li><a class="dropdown-item @@dashboardPendingAds" href="dashboard-pending-ads.html">Dashboard Pending Ads</a></li>
@@ -85,7 +85,9 @@
                             <li class="nav-item">
                                 <a th:href="@{/}" class="nav-link text-dark"><i class="fa fa-bell"></i> 알림</a>
                             </li>
-
+                            <li class="nav-item">
+                                <a th:href="@{/mypage/products}" class="nav-link text-dark"><i class="icofont-shopping-cart"></i> 내 상점</a>
+                            </li>
 
                             <li class="nav-item">
                                 <!--<a th:href="@{/login}" class="nav-link text-dark"><i class="icofont-login"></i> 로그인</a>-->

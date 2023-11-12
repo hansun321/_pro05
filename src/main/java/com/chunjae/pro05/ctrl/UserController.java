@@ -1,7 +1,9 @@
 package com.chunjae.pro05.ctrl;
 
+import com.chunjae.pro05.biz.KeywordService;
 import com.chunjae.pro05.domain.UserPrincipal;
 import com.chunjae.pro05.entity.Human;
+import com.chunjae.pro05.entity.Keyword;
 import com.chunjae.pro05.entity.User;
 import com.chunjae.pro05.biz.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +25,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private KeywordService keywordService;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -31,11 +36,8 @@ public class UserController {
 //        if (auth.getPrincipal().equals("anonymousUser")) {
 //            System.out.println("equal");
 //        }
-
         //UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
         //System.out.println("userPrincipal : " + userPrincipal);
-
-
         Human human = new Human();
         human.setName("김천재");
         human.setAge(39);
@@ -51,6 +53,7 @@ public class UserController {
         model.addAttribute("hList", hList);
         model.addAttribute("human", human);
         model.addAttribute("attrName", "임의필드");
+        //System.out.println("users : " + userService.findAllUser());
         return "user/index";
     }
 
@@ -101,9 +104,52 @@ public class UserController {
         //System.out.println(userPrincipal.toString());
 
         model.addAttribute("userName", "Welcome " + userPrincipal.getName() + " (" + userPrincipal.getId() + ")");
-        model.addAttribute("adminMessage","Content Available Only for Users with Admin Role");
+        model.addAttribute("adminMessage", "Content Available Only for Users with Admin Role");
         return "user/home";
     }
+
+    @GetMapping("/mypage")
+    public String myPage() {
+        return "redirect:/mypage/products";
+    }
+
+    @GetMapping("/mypage/products")
+    public String myProducts(Model model) {
+        return "user/my-products";
+    }
+
+    @GetMapping("/mypage/keywords")
+    public String getKeywords(Model model) {
+//        List<Keyword> keywordList = keywordService.getKeywordList();
+//        model.addAttribute("keywordList", keywordList);
+        //System.out.println("keywordList : " + keywordList);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
+        String loginId = userPrincipal.getId();
+        User user = userService.findUserByLoginId(loginId);
+        model.addAttribute("user", user);
+        //System.out.println("user : " + user);
+
+        List<Keyword> keywords = keywordService.getKeywordsByUid(loginId);
+        model.addAttribute("keywords", keywords);
+        return "user/keywords";
+    }
+
+    @PostMapping("/mypage/addWord")
+    public String checkKeyword(Model model, @Valid Keyword keyword, BindingResult bindingResult) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
+        String loginId = userPrincipal.getId();
+
+        if (bindingResult.hasErrors()) {
+            return "user/keywords :: #form";
+        }
+        int cnt = keywordService.keywordInsert(keyword);
+        List<Keyword> keywords = keywordService.getKeywordsByUid(loginId);
+        model.addAttribute("keywords", keywords);
+        return "user/keywords :: #list";
+    }
+
 
     @GetMapping("/exception")
     public String getUserPermissionExceptionPage() {
