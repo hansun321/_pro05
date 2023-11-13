@@ -1,9 +1,11 @@
 package com.chunjae.pro05.ctrl;
 
 import com.chunjae.pro05.biz.KeywordService;
+import com.chunjae.pro05.biz.NotificationService;
 import com.chunjae.pro05.domain.UserPrincipal;
 import com.chunjae.pro05.entity.Human;
 import com.chunjae.pro05.entity.Keyword;
+import com.chunjae.pro05.entity.Notification;
 import com.chunjae.pro05.entity.User;
 import com.chunjae.pro05.biz.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private KeywordService keywordService;
+    @Autowired
+    private NotificationService notificationService;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -148,6 +152,21 @@ public class UserController {
         List<Keyword> keywords = keywordService.getKeywordsByUid(loginId);
         model.addAttribute("keywords", keywords);
         return "user/keywords :: #list";
+    }
+
+    @GetMapping("/notifications")
+    public String getNotifications(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
+        String loginId = userPrincipal.getId();
+        User user = userService.findUserByLoginId(loginId);
+        model.addAttribute("user", user);
+
+        //List<Keyword> keywords = keywordService.getKeywordsByUid(loginId);
+        //model.addAttribute("keywords", keywords);
+        List<Notification> notifications = notificationService.getNotificationsByUid(loginId);
+        model.addAttribute("notifications", notifications);
+        return "user/notifications";
     }
 
 

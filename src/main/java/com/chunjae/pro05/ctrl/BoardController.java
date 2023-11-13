@@ -2,9 +2,11 @@ package com.chunjae.pro05.ctrl;
 
 import com.chunjae.pro05.biz.BoardService;
 import com.chunjae.pro05.biz.KeywordService;
+import com.chunjae.pro05.biz.NotificationService;
 import com.chunjae.pro05.domain.UserPrincipal;
 import com.chunjae.pro05.entity.Board;
 import com.chunjae.pro05.entity.Keyword;
+import com.chunjae.pro05.entity.Notification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,6 +31,10 @@ public class BoardController {
 
     @Autowired
     private KeywordService keywordService;
+
+    @Autowired
+    private NotificationService notificationService;
+
 
     @GetMapping("list")
     public String getBoardList(Model model) throws Exception {
@@ -74,13 +80,20 @@ public class BoardController {
         board.setContent(request.getParameter("content"));
         board.setId(loginId);
 
-        List<Keyword> keywords = keywordService.getKeywordsByUid(loginId);
-        for (Keyword k : keywords) {
+        //List<Keyword> keywords = keywordService.getKeywordsByUid(loginId);
+        List<Keyword> keywordList = keywordService.getKeywordList();
+        for (Keyword k : keywordList) {
             if (title.contains(k.getWord())) {
                 //System.out.printf("%s contains %s\n", title, k.getWord());
+            //Notification noti = new Notification();
+            //noti.setUid(k.getUid());
+            //noti.setWord(k.getWord());
+            //notificationService.notificationInsert(noti);
             }
         }
         boardService.insertBoard(board);
+        //System.out.println("board : " + board);
+        //System.out.println("bno : " + board.getBno());
         return "redirect:list";
     }
 
